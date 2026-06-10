@@ -1,18 +1,7 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import CharacterCard from "./CharacterCard";
 import styles from "./CharacterList.module.css";
 
-export default function CharacterList() {
-  const [characters, setCharacters] = useState([]);
-
-  useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/character")
-      .then((res) => res.json())
-      .then((data) => setCharacters(data.results));
-  }, []);
-
+export default function CharacterList({ characters }) {
   return (
     <div className={styles.grid}>
       {characters.map((character) => (
